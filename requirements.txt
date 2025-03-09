@@ -11,6 +11,7 @@ easydict
 ftfy
 dashscope
 imageio-ffmpeg
-flash_attn
 gradio>=5.0.0
-numpy>=1.23.5,<2
+numpy>=1.23.5
+# Install Flash-Attn last
+flash-attn
