@@ -72,6 +72,8 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## 👥 Contributors
 - **Itsmesonu7462** – Lead Developer
+**Adityaraaj62** – Lead Developer
+**vksiwan456** – Lead Developer
 - **Collaborators Welcome!** – Feel free to contribute
 
 ## ⭐ Support & Contributions
