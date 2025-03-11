@@ -1,10 +1,10 @@
-# Copyright 2024-2025 The Alibaba Wan Team Authors. All rights reserved.
+
 import torch
 from easydict import EasyDict
 
 from .shared_config import wan_shared_cfg
 
-#------------------------ Wan I2V 14B ------------------------#
+
 
 i2v_14B = EasyDict(__name__='Config: Wan I2V 14B')
 i2v_14B.update(wan_shared_cfg)

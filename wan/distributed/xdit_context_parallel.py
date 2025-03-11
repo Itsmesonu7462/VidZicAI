@@ -1,4 +1,4 @@
-# Copyright 2024-2025 The Alibaba Wan Team Authors. All rights reserved.
+
 import torch
 import torch.cuda.amp as amp
 from xfuser.core.distributed import (get_sequence_parallel_rank,
