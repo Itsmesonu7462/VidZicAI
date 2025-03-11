@@ -36,8 +36,10 @@ with st.expander("Advanced Settings"):
 @st.cache_resource()
 def load_model(model_type):
     cfg = WAN_CONFIGS[model_type]
-    return wan.WanT2V(config=cfg, device_id=0, rank=0)
+    checkpoint_dir = "checkpoints/"  # Set the correct directory
+    return wan.WanT2V(config=cfg, checkpoint_dir=checkpoint_dir, device_id=0, rank=0)
 
+# Load model
 model = load_model(model_type)
 
 # Image Upload (For I2V models)

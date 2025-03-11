@@ -468,42 +468,45 @@ def umt5_xxl(**kwargs):
     cfg.update(**kwargs)
     return _t5('umt5-xxl', **cfg)
 
-
 class T5EncoderModel:
 
     def __init__(
         self,
         text_len,
         dtype=torch.bfloat16,
-        device=torch.cuda.current_device(),
+        device="cpu",  # Default to CPU to avoid CUDA issues
         checkpoint_path=None,
         tokenizer_path=None,
         shard_fn=None,
     ):
         self.text_len = text_len
         self.dtype = dtype
-        self.device = device
+        self.device = torch.device(device)  # Ensuring compatibility
         self.checkpoint_path = checkpoint_path
         self.tokenizer_path = tokenizer_path
 
-        # init model
+        # Initialize model
         model = umt5_xxl(
             encoder_only=True,
             return_tokenizer=False,
             dtype=dtype,
-            device=device).eval().requires_grad_(False)
-        logging.info(f'loading {checkpoint_path}')
-        model.load_state_dict(torch.load(checkpoint_path, map_location='cpu'))
+            device=self.device).eval().requires_grad_(False)
+        
+        logging.info(f'Loading checkpoint from {checkpoint_path}')
+        model.load_state_dict(torch.load(checkpoint_path, map_location=self.device))
         self.model = model
+        
         if shard_fn is not None:
             self.model = shard_fn(self.model, sync_module_states=False)
         else:
             self.model.to(self.device)
-        # init tokenizer
+        
+        # Initialize tokenizer
         self.tokenizer = HuggingfaceTokenizer(
             name=tokenizer_path, seq_len=text_len, clean='whitespace')
 
-    def __call__(self, texts, device):
+    def __call__(self, texts, device=None):
+        device = device or self.device  # Default to model's device
         ids, mask = self.tokenizer(
             texts, return_mask=True, add_special_tokens=True)
         ids = ids.to(device)
