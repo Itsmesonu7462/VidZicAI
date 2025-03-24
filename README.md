@@ -16,7 +16,9 @@ VidZicAI is a Streamlit-based AI application that enables users to generate **vi
 git clone https://github.com/Itsmesonu7462/VidZicAI.git
 cd VidZicAI
 ```
-
+### download weightage from this particular
+- ** url for weightage**- https://huggingface.co/google/umt5-xxl/tree/main
+- ** find for ** :- umt5-xxl or umt5-xl(huggingface.io)
 ### 2️⃣ Install Dependencies
 Ensure you have Python installed (recommended **Python 3.10+**). Then, install required packages:
 ```bash
