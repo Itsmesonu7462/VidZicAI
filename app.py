@@ -13,7 +13,7 @@ from wan.utils.utils import cache_video, cache_image
 warnings.filterwarnings('ignore')
 
 # Streamlit UI
-st.title("Wan AI Video & Image Generator")
+st.title("VIdZicAi Video & Image Generator")
 
 # Model Selection
 model_type = st.selectbox("Select Model Type", list(WAN_CONFIGS.keys()))

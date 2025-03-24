@@ -474,7 +474,7 @@ class T5EncoderModel:
         self,
         text_len,
         dtype=torch.bfloat16,
-        device="cpu",  # Default to CPU to avoid CUDA issues
+        device="cuda",  # Default to CPU to avoid CUDA issues
         checkpoint_path=None,
         tokenizer_path=None,
         shard_fn=None,
