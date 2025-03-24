@@ -16,6 +16,8 @@ tokenizers
 accelerate
 tqdm
 imageio
+easydict
+ftfy
 dashscope
 imageio-ffmpeg
 gradio
