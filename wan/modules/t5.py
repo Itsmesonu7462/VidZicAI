@@ -1,5 +1,3 @@
-# Modified from transformers.models.t5.modeling_t5
-
 import logging
 import math
 import torch
@@ -61,4 +59,3 @@ class T5EncoderModel:
             texts, return_tensors="pt", padding=True, truncation=True, max_length=self.text_len)
         inputs = {k: v.to(device) for k, v in inputs.items()}
         outputs = self.model.generate(**inputs)
-        return self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
