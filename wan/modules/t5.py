@@ -14,10 +14,8 @@ __all__ = [
     'T5EncoderModel',
 ]
 
-# Check if CUDA is available
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# Initialize T5 model and tokenizer from Hugging Face
 hf_model = T5ForConditionalGeneration.from_pretrained("google/umt5-xxl").to(device)
 hf_tokenizer = T5Tokenizer.from_pretrained("google/umt5-xxl")
 
@@ -44,7 +42,6 @@ class T5EncoderModel:
         self.checkpoint_path = checkpoint_path
         self.tokenizer_path = tokenizer_path
 
-        # Load model & tokenizer from Hugging Face instead of checkpoint
         self.model = hf_model.eval().requires_grad_(False).to(self.device)
         self.tokenizer = hf_tokenizer
 
