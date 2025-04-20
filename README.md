@@ -19,6 +19,7 @@ cd VidZicAI
 ### download weightage from this particular
 - ** url for weightage**- https://huggingface.co/google/umt5-xxl/tree/main
 - ** find for ** :- umt5-xxl or umt5-xl(huggingface.io)
+-** alternative**:- umt5-small or direct download umt5-small to your pc and change @t5.py to umt5-small
 ### 2️⃣ Install Dependencies
 Ensure you have Python installed (recommended **Python 3.10+**). Then, install required packages:
 ```bash
